@@ -37,7 +37,7 @@ class RestApi {
         this.body = JSON.stringify(body);
         return request.call(this, 'POST', ...arguments);
       },
-    }, getPromiseProtoMethods(this));
+    }, getPromiseProtoMethods(this, 'POST'));
   }
 
   put() {
@@ -46,7 +46,7 @@ class RestApi {
         this.body = JSON.stringify(body);
         return request.call(this, 'PUT', ...arguments);
       },
-    }, getPromiseProtoMethods(this));
+    }, getPromiseProtoMethods(this, 'PUT'));
   }
 
   patch() {
@@ -55,7 +55,7 @@ class RestApi {
         this.body = JSON.stringify(body);
         return request.call(this, 'PATCH', ...arguments);
       },
-    }, getPromiseProtoMethods(this));
+    }, getPromiseProtoMethods(this, 'PATCH'));
   }
 
   delete() {
@@ -122,12 +122,12 @@ function request(method, path, cb) {
   return deferred.promise;
 }
 
-function getPromiseProtoMethods(context) {
+function getPromiseProtoMethods(context, httpVerb) {
   const fns = {};
 
   Object.keys(Promise.prototype).forEach(method => {
     fns[method] = (...args) => {
-      return request.call(context, 'POST', ...arguments)[method](...args);
+      return request.call(context, httpVerb, ...arguments)[method](...args);
     };
   });
 
