@@ -1,0 +1,22 @@
+{
+  "name": "rest-api",
+  "version": "1.0.0",
+  "description": "Build re-usable object instances for calling REST (or other http) APIs.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/richardpringle/rest-api.git"
+  },
+  "author": "Richard Pringle",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/richardpringle/rest-api/issues"
+  },
+  "homepage": "https://github.com/richardpringle/rest-api#readme",
+  "dependencies": {
+    "bluebird": "^3.5.1"
+  }
+}
